@@ -68,15 +68,15 @@ Problem 2:
 
 Static Scope:
 
-153 is the output because
+180 is the output because static uses the global variable where the variable were initially defined. So for v it would be 69 + u which would be 42 + z where z was established in bar with v's variable so also 69. This would be 69+42+69 = 180.
 
 Deep Dynamic Scope:
 
-The output would be 180.Deep binding connects function parameters to the variables in the calling environment at runtime. This means that if the values of the variables in the calling environment change after the function is invoked, the values of the parameters can also change.
+The output would be 126.Deep binding connects function parameters to the variables in the calling environment at runtime. This means that if the values of the variables in the calling environment change after the function is invoked, the values of the parameters can also change. In other words It takes the environment of the parent function. So in the stack since foo is the parent function and the only thing being defined is the v variable we take that v = 69 + the global u = 69 + z = 69 because z was never established so we take the closes parent to the z variable and when we add the numbers we get 126.
 
 Shallow Dynamic Scope:
 
-The output would be 101.Shallow binding links function parameters to the variables in the calling environment at the time the function is defined. As a result, if the values of the variables in the calling environment change before the function is executed, the values of the parameters can also change.
+The output would be 101.Shallow binding links function parameters to the variables in the calling environment at the time the function is defined. As a result, if the values of the variables in the calling environment change before the function is executed, the values of the parameters can also change. Shallow binding is similar but in the stack it is taking the environment of the final calling function of each variable So in the stack v was called last from (foo) with 42 + u called last from (bar) with 17 + z being last called from bar with 42  which gives us 101.
 
 
 
